@@ -23,24 +23,10 @@ app.use(express.static(staticFilePath));
 app.get('/',function(req,res){
     //to render our views.
     res.render('index',{
-        name: "vijay",
-        title: 'index page'
+        name: "Vijay",
+        title: 'Weather App'
     });
 
-});
-
-app.get('/about',function(req,res){
-    res.render('about',{
-        name: "arjun",
-        title: 'About Page'
-    });
-});
-
-app.get('/help',function(req,res){
-    res.render('help',{
-        name: "ram",
-        title: 'Help page'
-    });
 });
 
 app.get('/weather',function(req,res){
@@ -60,14 +46,6 @@ app.get('/weather',function(req,res){
                 forecast: body.curr_forecast,
             });
         });
-    });
-});
-
-
-app.get('/help/*',function(req,res){
-    res.render('404',{
-        title: '404',
-        errormsg: "Help page not found"
     });
 });
 
