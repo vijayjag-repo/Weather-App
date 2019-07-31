@@ -50,12 +50,14 @@ app.get('/weather',function(req,res){
         });
     }
     geocode(req.query.address,function(error,response,body){
-        
         weather(body.latitude,body.longitude,function(error,response,body){
             res.send({
+                address: req.query.address,
                 temperature: body.currtemp,
+                precipitation: body.precipitation,
+                current_forecast: body.curr_forecast,
+                hour_forecast: body.hour_forecast,
                 forecast: body.curr_forecast,
-                address: req.query.address
             });
         });
     });
